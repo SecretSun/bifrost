@@ -201,6 +201,7 @@ export const baseApi = createApi({
 		"FeatureFlags",
 		"ComplexityAnalyzerConfig",
 		"Skills",
+		"UserAgentMappings",
 		"Devices",
 		"CircuitBreakerPolicies",
 		"CircuitBreakerState",
