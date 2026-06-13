@@ -28,7 +28,6 @@ export enum RbacResource {
 	PIIRedactor = "PIIRedactor",
 	PromptRepository = "PromptRepository",
 	PromptDeploymentStrategy = "PromptDeploymentStrategy",
-	SkillsRepository = "SkillsRepository",
 	AccessProfiles = "AccessProfiles",
 	APIKeys = "APIKeys",
 	Inference = "Inference",
@@ -38,6 +37,7 @@ export enum RbacResource {
 	Devices = "Devices",
 	Inventory = "Inventory",
 	EdgeConfig = "EdgeConfig",
+	SkillsRepository = "SkillsRepository",
 }
 
 // RBAC Operation Names (must match backend definitions)
