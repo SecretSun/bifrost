@@ -32,9 +32,9 @@ Bifrost includes three pre-configured system roles that cover common access patt
 
 | Role | Permissions | Description |
 |------|-------------|-------------|
-| **Admin** | 42 | Full access to all resources and operations |
-| **Developer** | 27 | CRUD access to technical resources, view access to logs and cluster |
-| **Viewer** | 14 | Read-only access to all resources |
+| **Admin** | Full access | Full access to all resources and operations, including log reveal |
+| **Developer** | Technical access | CRUD access to technical resources, full inference access, and view access to logs and monitoring resources |
+| **Viewer** | Read-only access | View access to resources and dashboards |
 
 System roles cannot be deleted, but their permissions can be customized to fit your organization's needs.
 
@@ -66,7 +66,7 @@ Bifrost protects access to the following resources:
 
 | Resource | Description |
 |----------|-------------|
-| **Logs** | Request and response logs |
+| **Logs** | Request and response logs, including reversible redaction reveal when permitted |
 | **ModelProvider** | AI model provider configurations |
 | **Observability** | Monitoring and metrics dashboards |
 | **Plugins** | Plugin configurations and management |
@@ -74,16 +74,18 @@ Bifrost protects access to the following resources:
 | **UserProvisioning** | User and group provisioning settings |
 | **Users** | User account management |
 | **AuditLogs** | Audit trail and compliance logs |
-| **GuardrailsConfig** | Guardrail configurations |
-| **GuardrailRules** | Individual guardrail rules |
+| **GuardrailsConfig** | Guardrail rules and configuration |
+| **GuardrailsProviders** | Guardrail provider profiles |
 | **Cluster** | Cluster configuration and nodes |
 | **Settings** | Workspace settings |
 | **MCPGateway** | MCP Gateway configurations |
+| **MCPToolGroups** | MCP tool group management |
+| **MCPLogs** | MCP tool execution logs |
 | **AdaptiveRouter** | Adaptive routing settings |
 
 ### Operations
 
-Each resource supports up to four operations:
+Most resources support the standard CRUD operations. Some resources expose specialized operations for security-sensitive or non-CRUD workflows.
 
 | Operation | Description |
 |-----------|-------------|
@@ -91,6 +93,17 @@ Each resource supports up to four operations:
 | **Create** | Ability to create new instances of the resource |
 | **Update** | Ability to modify existing resources |
 | **Delete** | Ability to remove resources |
+| **Download** | Ability to download resources, such as audit logs |
+| **Reveal** | Ability to reveal original values for reversible redactions in Bifrost logs |
+| **Inference operations** | Ability to invoke specific inference surfaces, such as chat completions, embeddings, images, audio, and moderations |
+
+### Logs:Reveal
+
+`Logs:Reveal` controls access to the reveal endpoint for reversible guardrail redactions. A user with `Logs:View` can see the redacted log entry, but they also need `Logs:Reveal` to retrieve the placeholder-to-original mapping for that log.
+
+Reveal applies only to Bifrost logs. It does not expose mappings to external observability connectors or object-storage exports. For redaction behavior, see [Guardrail Redaction](/enterprise/guardrails/redaction).
+
+By default, Admin includes `Logs:Reveal`. Developer and Viewer include `Logs:View` but not `Logs:Reveal`.
 
 ---
 

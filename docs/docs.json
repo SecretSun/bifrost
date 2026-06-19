@@ -310,8 +310,11 @@
                 "icon": "road-barrier",
                 "pages": [
                   "enterprise/guardrails",
+                  "enterprise/guardrails/redaction",
                   "enterprise/guardrails/secrets-detection",
                   "enterprise/guardrails/custom-regex",
+                  "integrations/guardrails/presidio",
+                  "integrations/guardrails/azure-language-pii",
                   "integrations/guardrails/aws-bedrock",
                   "integrations/guardrails/azure-content-safety",
                   "integrations/guardrails/google-model-armor",
@@ -462,8 +465,11 @@
             "group": "Content Safety (Guardrails)",
             "icon": "road-barrier",
             "pages": [
+              "enterprise/guardrails/redaction",
               "enterprise/guardrails/secrets-detection",
               "enterprise/guardrails/custom-regex",
+              "integrations/guardrails/presidio",
+              "integrations/guardrails/azure-language-pii",
               "integrations/guardrails/aws-bedrock",
               "integrations/guardrails/azure-content-safety",
               "integrations/guardrails/google-model-armor",
