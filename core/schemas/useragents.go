@@ -19,7 +19,7 @@ var (
 	// CodexCLI identifies requests from Codex CLI clients.
 	CodexCLI = UserAgentIdentifiers{"codex-cli", "codex-tui"}
 	// CodexDesktop identifies requests from the Codex desktop app.
-	CodexDesktop = UserAgentIdentifiers{"codex-desktop", "codex/"}
+	CodexDesktop = UserAgentIdentifiers{"codex-desktop", "codex desktop/", "codex/"}
 	// Cursor identifies requests from Cursor clients.
 	Cursor = UserAgentIdentifiers{"cursor"}
 	// KiloCode identifies requests from Kilo Code clients.

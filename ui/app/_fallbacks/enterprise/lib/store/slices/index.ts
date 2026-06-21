@@ -8,5 +8,8 @@ export const guardrailReducer = (state = {}) => state;
 // Empty reducers map when enterprise features are not available
 export const reducers = {};
 
+// Empty middleware list when enterprise features are not available
+export const middleware = [];
+
 // Empty enterprise state type when enterprise features are not available
 export type EnterpriseState = {};
